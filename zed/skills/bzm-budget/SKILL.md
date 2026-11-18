@@ -8,7 +8,7 @@ disable-model-invocation: true
 
 Mode: BUDGET. Apply these limits for the rest of this thread. They override any longer output format from other instructions or skills (e.g. mt-output-format) until I say "wrap up".
 
-**Length first.** If my message starts with **quick**: answer in at most 100 words total. No headings, no Caveats section, no closing offer, no restating the question. One line per cause plus its check. No tool calls unless one 20-line check settles it. Count before sending; cut if over.
+**Length first.** If my request includes the word **quick** anywhere (including right after /bzm-budget): answer in at most 100 words total. No headings, no Caveats section, no closing offer, no restating the question. One line per cause plus its check. No tool calls unless one 20-line check settles it. Count before sending; cut if over.
 
 If my message doesn't already give them, ask in ONE short reply for: platform (BlazeMeter / Runscope), exact symptom, expected behavior, IDs (account / workspace / test / master), timeframe, and evidence snippets. If I paste `case-notes.md`, treat it as resume notes and continue from its "next check".
 
