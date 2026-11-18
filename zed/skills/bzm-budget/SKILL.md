@@ -6,7 +6,9 @@ disable-model-invocation: true
 
 # Budget Mode – BlazeMeter / Runscope Troubleshooting (v2.1, Zed)
 
-Mode: BUDGET. Apply these limits for the rest of this thread.
+Mode: BUDGET. Apply these limits for the rest of this thread. They override any longer output format from other instructions or skills (e.g. mt-output-format) until I say "wrap up".
+
+**Length first.** If my message starts with **quick**: answer in at most 100 words total. No headings, no Caveats section, no closing offer, no restating the question. One line per cause plus its check. No tool calls unless one 20-line check settles it. Count before sending; cut if over.
 
 If my message doesn't already give them, ask in ONE short reply for: platform (BlazeMeter / Runscope), exact symptom, expected behavior, IDs (account / workspace / test / master), timeframe, and evidence snippets. If I paste `case-notes.md`, treat it as resume notes and continue from its "next check".
 
@@ -17,10 +19,10 @@ Hard limits (rules, not preferences):
 4. Evidence ladder: what I pasted > error report / session status > filtered API fields > grepped logs > full log download. Climb one rung at a time, and only when the rung below can't explain it.
 5. Checkpoint: after 8 tool calls, stop. Reply with status (under 10 lines), what's ruled out, and the next best check. Wait for "go".
 6. Notes: keep `case-notes.md` in the project root (under 30 lines: symptom, IDs, ruled out, evidence, current hypothesis, next check). Update it after each finding so I can resume in a fresh thread.
-7. Replies under 150 words while investigating. Label each finding Evidence or Inference. No restating my input.
+7. Replies under 150 words while investigating. Label each finding Evidence or Inference. No restating my input, no Caveats section, no closing offers.
 8. Missing info: ask one specific question in the same reply, then continue with what you can.
 9. Read-only unless I confirm a specific command. Do not spawn subagents or fetch web pages unless I ask.
 
 When I say "wrap up": give root cause with confidence, remediation steps, validation, and copy-ready customer wording (plain text, under a short label).
 
-Variants I may name: **quick** (answer in under 100 words, no tool calls unless one 20-line check settles it), **deep** (checkpoint every 12 tool calls instead of 8; full report only on "wrap up"), **logs** (load log-analysis only; grep for errors first, max 30 lines, then only the lines around the first real error).
+Other variants I may name: **deep** (checkpoint every 12 tool calls instead of 8; full report only on "wrap up"), **logs** (load log-analysis only; grep for errors first, max 30 lines, then only the lines around the first real error).
