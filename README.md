@@ -1,43 +1,28 @@
 # BlazeMeter Troubleshooting Prompts
 
-Reusable AI troubleshooting prompts optimized for token efficiency when investigating BlazeMeter and Runscope support cases.
+Reusable prompts for token-efficient AI troubleshooting of BlazeMeter and API Monitoring (Runscope) support cases, built for engineers working within a monthly Copilot allowance.
 
-## Purpose
+## What's here
 
-These prompts help support engineers work with AI assistants (Claude, ChatGPT, Copilot, etc.) more efficiently by:
-- Reducing token consumption through targeted investigation
-- Establishing clear troubleshooting priorities
-- Separating evidence from inference
-- Providing both internal analysis and customer-ready responses
+- [`PROMPT.md`](PROMPT.md): **Budget Mode v2.0**, the main prompt, plus Quick, Deep, and Logs variants and spending habits.
+- [`copilot/bzm-budget.prompt.md`](copilot/bzm-budget.prompt.md): the same prompt as a VS Code Copilot prompt file (`/bzm-budget`).
 
-## Usage
+## Use it with the modular system prompt
 
-Copy the appropriate prompt from [PROMPT.md](PROMPT.md) and paste it at the start of your AI troubleshooting session, then fill in the bracketed sections with your case details.
+1. Install the v3 modular system prompt from [`Blazemeter/blazemeter-system-prompt`](https://github.com/Blazemeter/blazemeter-system-prompt): `core.md` as `.github/copilot-instructions.md` and `modules/` as `.github/modules/`.
+2. Copy `copilot/bzm-budget.prompt.md` to `.github/prompts/`.
+3. For each case, open a new chat, run `/bzm-budget` (or paste the block from `PROMPT.md`), fill in the brackets, and include your evidence in the same message.
+4. When a phase ends, start a fresh chat and paste `case-notes.md` as Resume notes.
 
-### Available Prompts
+## Why it saves tokens
 
-1. **Full Version** - Comprehensive troubleshooting session with all guidelines
-2. **Quick Version** - For simple, straightforward issues
-3. **Deep Investigation Version** - For complex multi-step root cause analysis
-4. **Log Analysis Version** - When you already have logs downloaded
+Agent mode resends the system prompt and the whole conversation on every tool call. Cost grows with (context size) x (number of steps). Budget Mode attacks both:
 
-## Token Savings
+- **Smaller context:** modular core instead of the full bundle; 50-line cap on tool output; snippets instead of logs; a notes file so new chats start small.
+- **Fewer steps:** hypothesis-first checks, an evidence ladder, and a checkpoint after 8 tool calls so a deep ticket can't run away unattended.
 
-Following these prompts can reduce token consumption by 90%+ compared to unguided investigation:
-- Example: Empty CSV parameter investigation went from 82,000 tokens (unguided) to estimated ~5,000 tokens (guided)
-
-## Key Principles
-
-- Start with error reports before downloading logs
-- Use surgical API calls (`--get 'result.field'`) instead of full responses
-- Ask targeted questions before pulling data
-- Provide both technical findings and customer-ready explanations
-- Separate BlazeMeter and Runscope platforms (never assume feature parity)
-
-## Feedback & Improvements
-
-This is a living document. Contributions and refinements welcome based on real-world troubleshooting experiences.
+The v1 prototype's example (an empty-CSV-parameter case going from ~82,000 tokens unguided to an estimated ~5,000 guided) is an estimate, not a measurement.
 
 ## Version
 
-**Current Release:** prototype
+**Current:** v2.0 (Budget Mode). v1 prototype is in git history.
