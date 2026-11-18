@@ -1,0 +1,52 @@
+{
+  "agent": {
+    "profiles": {
+      "bzm-budget": {
+        "name": "BZM Budget",
+        "tools": {
+          "read_file": true,
+          "grep": true,
+          "find_path": true,
+          "list_directory": true,
+          "terminal": true,
+          "skill": true,
+          "edit_file": true,
+          "write_file": true,
+          "diagnostics": false,
+          "fetch": false,
+          "search_web": false,
+          "spawn_agent": false,
+          "copy_path": false,
+          "create_directory": false,
+          "delete_path": false,
+          "move_path": false
+        },
+        "enable_all_context_servers": false,
+        "context_servers": {}
+      },
+      "bzm-investigate": {
+        "name": "BZM Investigate",
+        "tools": {
+          "read_file": true,
+          "grep": true,
+          "find_path": true,
+          "list_directory": true,
+          "terminal": true,
+          "skill": true,
+          "fetch": true,
+          "edit_file": true,
+          "write_file": true,
+          "diagnostics": false,
+          "search_web": false,
+          "spawn_agent": false,
+          "copy_path": false,
+          "create_directory": false,
+          "delete_path": false,
+          "move_path": false
+        },
+        "enable_all_context_servers": false,
+        "context_servers": {}
+      }
+    }
+  }
+}
