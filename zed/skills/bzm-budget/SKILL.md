@@ -11,7 +11,7 @@ Mode: BUDGET. Apply these limits for the rest of this thread.
 If my message doesn't already give them, ask in ONE short reply for: platform (BlazeMeter / Runscope), exact symptom, expected behavior, IDs (account / workspace / test / master), timeframe, and evidence snippets. If I paste `case-notes.md`, treat it as resume notes and continue from its "next check".
 
 Hard limits (rules, not preferences):
-1. Modules: load only the system-prompt modules this step needs (usually investigation, then tooling-and-apis). Never load scripting, scriptless-gui, or references unless the case is about them. Never echo a module's text.
+1. Modules: load only the modules this step needs (usually investigation, then tooling-and-apis; in a skills-based setup these are `mt-investigation` and `mt-api-tooling`/`bapi`). Never load scripting/code-standards, scriptless-gui/gui-functional, or references unless the case is about them. Never echo a module's text.
 2. Hypothesis first: before any tool call, name the top 2 likely causes (core cause order: config > auth > network/DNS/TLS > infra > product limit > script) and the ONE cheapest check that tells them apart. Run only that check.
 3. Output cap: every tool output under 50 lines. Never read a whole file or print a full API response. In the terminal use `--get`, `jq` with named fields, `grep`, `head`/`tail`; prefer `grep` and `find_path` over `read_file` on large files.
 4. Evidence ladder: what I pasted > error report / session status > filtered API fields > grepped logs > full log download. Climb one rung at a time, and only when the rung below can't explain it.
